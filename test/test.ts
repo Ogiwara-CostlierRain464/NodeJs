@@ -1,13 +1,12 @@
-console.log("Hello! Node.Js x TypeScript")
+declare function require(x: string): any
+var http = require('http')
 
-import http = require("http")
-var server = http.createServer()
-server.on("request",doRequest)
-server.listen(1234)
-console.log("runnig!")
-
-function doRequest(req,res){
-    res.writeHead(200,{'Content-Type': 'text/plain'})
-    res.write("hello,wolrd")
+var server = http.createServer(function(req,res){
+    res.statusCode = 200
+    res.setHeader("Content-type","text/plain")
+    res.write("Hello, TS")
     res.end()
-}
+})
+
+server.listen(8080)
+console.log("Server started!")
