@@ -1,0 +1,7 @@
+<div *ngIf="todo">
+  <h2>Selected message: {{todo.message | uppercase}}</h2>
+  <label>message: </label>
+  <input type="text" [(ngModel)]="todo.message">
+  <button (click)="goBack()">Back</button>
+  <button (click)="save()">Save</button>
+</div>
